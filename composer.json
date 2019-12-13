@@ -1,0 +1,30 @@
+{
+    "name": "quasar/cms",
+    "description": "Quasar CMS package",
+    "keywords": [
+        "syscover",
+        "pulsar",
+        "quasar",
+        "laravel",
+        "intranet",
+        "cms",
+        "nimbl"
+    ],
+    "authors": [
+        {
+            "name": "Jose Carlos Rodríguez Palacín",
+            "email": "carlos.rodriguez@techedgegroup.com"
+        }
+    ],
+    "require": {
+        "php": "^7.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "Quasar\\Cms\\": "src/Quasar/Cms"
+        },
+        "classmap": [
+            "src/Quasar/Cms"
+        ]
+    }
+}
