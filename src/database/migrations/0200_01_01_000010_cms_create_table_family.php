@@ -3,8 +3,8 @@
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CmsCreateTableFamily extends Migration {
-
+class CmsCreateTableFamily extends Migration 
+{
     /**
      * Run the migrations.
      *
