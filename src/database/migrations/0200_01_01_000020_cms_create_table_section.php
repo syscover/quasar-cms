@@ -19,7 +19,7 @@ class CmsCreateTableSection extends Migration
 
                 $table->increments('id');
                 $table->uuid('uuid');
-                $table->string('anchor', 30);
+                $table->string('anchor', 40);
                 $table->string('name');
                 $table->uuid('family_uuid')->nullable();
                 $table->json('attachment_families')->nullable();

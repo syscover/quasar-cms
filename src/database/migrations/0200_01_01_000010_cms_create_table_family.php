@@ -28,15 +28,15 @@ class CmsCreateTableFamily extends Migration
                 $table->uuid('excerpt_editor_uuid')->nullable();
                 $table->uuid('article_editor_uuid')->nullable();
                 $table->uuid('field_group_uuid')->nullable();
-                $table->boolean('date')->default(false);
-                $table->boolean('title')->default(false);
-                $table->boolean('slug')->default(false);
-                $table->boolean('link')->default(false);
-                $table->boolean('categories')->default(false);
-                $table->boolean('tags')->default(false);
-                $table->boolean('article_parent')->default(false);
-                $table->boolean('attachments')->default(false);
-                $table->boolean('sort')->default(false);
+                $table->boolean('has_date')->default(false);
+                $table->boolean('has_title')->default(false);
+                $table->boolean('has_slug')->default(false);
+                $table->boolean('has_link')->default(false);
+                $table->boolean('has_categories')->default(false);
+                $table->boolean('has_tags')->default(false);
+                $table->boolean('has_article_parent')->default(false);
+                $table->boolean('has_attachments')->default(false);
+                $table->boolean('has_sort')->default(false);
                 $table->json('data')->nullable();
 
                 $table->timestamps();
