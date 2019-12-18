@@ -1,0 +1,4 @@
+# Family
+adminCreateFamily(payload:AdminFamilyInput!): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@create")
+adminUpdateFamily(payload:AdminFamilyInput!): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@update")
+adminDeleteFamily(uuid:ID!): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@delete")

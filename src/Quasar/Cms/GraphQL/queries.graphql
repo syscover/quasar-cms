@@ -1,0 +1,4 @@
+# Family
+adminFamily(query:[QueryStatementInput]): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@find")
+adminFamilies(query:[QueryStatementInput]): [AdminFamily!]! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@get")
+adminFamiliesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@paginate")

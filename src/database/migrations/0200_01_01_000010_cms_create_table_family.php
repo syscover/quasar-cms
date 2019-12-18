@@ -43,7 +43,6 @@ class CmsCreateTableFamily extends Migration
                 $table->softDeletes();
 
                 $table->index('uuid', 'cms_family_uuid_idx');
-                $table->index('slug', 'cms_family_slug_idx');
                 $table->foreign('field_group_uuid', 'cms_family_field_group_uuid_fk')
                     ->references('uuid')
                     ->on('admin_field_group')

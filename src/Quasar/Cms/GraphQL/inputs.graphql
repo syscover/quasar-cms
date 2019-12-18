@@ -1,0 +1,21 @@
+input CmsFamilyInput
+{
+    id: Int
+    uuid: ID
+    name: String!
+    excerptEditorUuid: ID
+    articleEditorUuid: ID
+    fieldGroupUuid: ID
+    hasDate: Boolean
+    hasTitle: Boolean
+    hasSlug: Boolean
+    hasLink: Boolean
+    hasCategories: Boolean
+    hasTags: Boolean
+    hasArticleParent: Boolean
+    hasAttachments: Boolean
+    hasSort: Boolean
+    data: JSON
+    createdAt: DateTime
+    updatedAt: DateTime
+}
