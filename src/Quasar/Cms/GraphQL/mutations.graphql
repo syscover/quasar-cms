@@ -1,4 +1,4 @@
 # Family
-adminCreateFamily(payload:AdminFamilyInput!): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@create")
-adminUpdateFamily(payload:AdminFamilyInput!): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@update")
-adminDeleteFamily(uuid:ID!): AdminFamily @field(resolver: "Quasar\\Admin\\GraphQL\\Resolvers\\FamilyResolver@delete")
+cmsCreateFamily(payload:CmsFamilyInput!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@create")
+cmsUpdateFamily(payload:CmsFamilyInput!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@update")
+cmsDeleteFamily(uuid:ID!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@delete")
