@@ -17,7 +17,12 @@ class CmsServiceProvider extends ServiceProvider
         // register seeds
         $this->publishes([
             __DIR__ . '/../../database/seeds/' => base_path('/database/seeds')
-        ], 'seeds');   
+        ], 'seeds');
+
+        // register config
+        $this->publishes([
+            __DIR__ . '/../../config/quasar-cms.php' => config_path('quasar-cms.php')
+        ], 'config');
 	}
 
 	/**
