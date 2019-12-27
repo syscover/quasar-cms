@@ -19,3 +19,14 @@ type CmsFamily
     createdAt: DateTime
     updatedAt: DateTime
 }
+
+type CmsSection
+{
+    id: Int!
+    uuid: ID!
+    anchor: String!
+    name: String!
+    familyUuid: ID
+    createdAt: DateTime
+    updatedAt: DateTime
+}

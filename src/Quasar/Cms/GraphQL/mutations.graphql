@@ -2,3 +2,8 @@
 cmsCreateFamily(payload:CmsFamilyInput!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@create")
 cmsUpdateFamily(payload:CmsFamilyInput!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@update")
 cmsDeleteFamily(uuid:ID!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@delete")
+
+# Section
+cmsCreateSection(payload:CmsSectionInput!): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@create")
+cmsUpdateSection(payload:CmsSectionInput!): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@update")
+cmsDeleteSection(uuid:ID!): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@delete")

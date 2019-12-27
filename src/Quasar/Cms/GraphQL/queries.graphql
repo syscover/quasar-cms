@@ -2,3 +2,8 @@
 cmsFamily(query:[QueryStatementInput]): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@find")
 cmsFamilies(query:[QueryStatementInput]): [CmsFamily!]! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@get")
 cmsFamiliesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@paginate")
+
+# Section
+cmsSection(query:[QueryStatementInput]): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@find")
+cmsSections(query:[QueryStatementInput]): [CmsSection!]! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@get")
+cmsSectionsPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@paginate")
