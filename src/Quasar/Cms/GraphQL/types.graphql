@@ -27,6 +27,8 @@ type CmsSection
     anchor: String!
     name: String!
     familyUuid: ID
+    family: CmsFamily
+    attachmentFamilies: [AdminAttachmentFamily]
     createdAt: DateTime
     updatedAt: DateTime
 }

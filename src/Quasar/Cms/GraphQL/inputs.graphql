@@ -27,6 +27,7 @@ input CmsSectionInput
     anchor: String!
     name: String!
     familyUuid: ID
+    attachmentFamiliesUuid: [ID]
     createdAt: DateTime
     updatedAt: DateTime
 }

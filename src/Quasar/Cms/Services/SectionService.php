@@ -8,22 +8,29 @@ class SectionService extends CoreService
     public function create(array $data)
     {
         $this->validate($data, [
-            'uuid'                  => 'nullable|uuid',
-            'anchor'                => 'required|between:2,255|unique:cms_section,anchor',
-            'name'                  => 'required|between:2,255',
-            'familyUuid'            => 'nullable|uuid|exists:cms_family,uuid'
+            'uuid'                      => 'nullable|uuid',
+            'anchor'                    => 'required|between:2,255|unique:cms_section,anchor',
+            'name'                      => 'required|between:2,255',
+            'familyUuid'                => 'nullable|uuid|exists:cms_family,uuid',
+            'attachmentFamiliesUuid'    => 'nullable|array'
         ]);
 
-        return Section::create($data)->fresh();
+        $object = Section::create($data)->fresh();
+
+        // update attachment families
+        $object->attachmentFamilies()->sync($data['attachmentFamiliesUuid']);
+        
+        return $object;
     }
 
     public function update(array $data, string $uuid)
     {
         $this->validate($data, [
-            'uuid'                  => 'nullable|uuid',
-            'anchor'                => 'required|between:2,255|unique:cms_section,anchor',
-            'name'                  => 'required|between:2,255',
-            'familyUuid'            => 'nullable|uuid|exists:cms_family,uuid'
+            'uuid'                      => 'nullable|uuid',
+            'anchor'                    => 'required|between:2,255|unique:cms_section,anchor,' . $uuid . ',uuid',
+            'name'                      => 'required|between:2,255',
+            'familyUuid'                => 'nullable|uuid|exists:cms_family,uuid',
+            'attachmentFamiliesUuid'    => 'nullable|array'
         ]);
 
         $object = Section::where('uuid', $uuid)->first();
@@ -33,6 +40,9 @@ class SectionService extends CoreService
 
         // save changes
         $object->save();
+
+        // update attachment families
+        $object->attachmentFamilies()->sync($data['attachmentFamiliesUuid']);
 
         return $object;
     }
