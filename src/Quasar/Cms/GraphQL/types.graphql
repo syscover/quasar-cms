@@ -1,3 +1,23 @@
+type CmsArticle
+{
+    id: Int!
+    uuid: ID!
+    commonUuid: ID!
+    langUuid: ID!
+    parentUuid: ID
+    authorUuid: ID!
+    authorType: String!
+    name: String!
+    statusUuid: ID!
+    publish: DateTime!
+    versionUuid: ID
+    title: String
+    dataLang: [String!]!
+    data: JSON
+    createdAt: DateTime
+    updatedAt: DateTime
+}
+
 type CmsFamily
 {
     id: Int!

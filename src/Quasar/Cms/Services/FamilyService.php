@@ -31,7 +31,8 @@ class FamilyService extends CoreService
     public function update(array $data, string $uuid)
     {
         $this->validate($data, [
-            'uuid'                  => 'nullable|uuid',
+            'id'                    => 'required|integer',
+            'uuid'                  => 'required|uuid',
             'name'                  => 'required|between:2,255',
             'excerptEditorUuid'     => 'nullable|uuid',
             'articleEditorUuid'     => 'nullable|uuid',

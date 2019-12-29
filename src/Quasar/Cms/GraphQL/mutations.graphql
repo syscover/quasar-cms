@@ -1,3 +1,8 @@
+# Article
+cmsCreateArticle(payload:CmsArticleInput!): CmsArticle @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@create")
+cmsUpdateArticle(payload:CmsArticleInput!): CmsArticle @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@update")
+cmsDeleteArticle(uuid:ID!): CmsArticle @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@delete")
+
 # Family
 cmsCreateFamily(payload:CmsFamilyInput!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@create")
 cmsUpdateFamily(payload:CmsFamilyInput!): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@update")

@@ -26,7 +26,8 @@ class SectionService extends CoreService
     public function update(array $data, string $uuid)
     {
         $this->validate($data, [
-            'uuid'                      => 'nullable|uuid',
+            'id'                        => 'required|integer',
+            'uuid'                      => 'required|uuid',
             'anchor'                    => 'required|between:2,255|unique:cms_section,anchor,' . $uuid . ',uuid',
             'name'                      => 'required|between:2,255',
             'familyUuid'                => 'nullable|uuid|exists:cms_family,uuid',
