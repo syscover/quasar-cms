@@ -17,7 +17,11 @@ class CmsPermissionSeeder extends Seeder
             ['uuid' => '803d0313-326a-4cfb-9ed5-1c90f89b980f',  'name' => 'cms.section.access',                         'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
             ['uuid' => 'df3adb90-aa32-4658-ae67-eb3085dbea4e',  'name' => 'cms.section.list',                           'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
             ['uuid' => 'd4540e1e-3a25-4ebf-bffd-895407965a34',  'name' => 'cms.section.create',                         'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
-            ['uuid' => 'e8917354-acf4-4d77-b8d6-0eb93f68e8d7',  'name' => 'cms.section.get',                            'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],  
+            ['uuid' => 'e8917354-acf4-4d77-b8d6-0eb93f68e8d7',  'name' => 'cms.section.get',                            'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
+            ['uuid' => '8ce583d0-b969-4d76-8813-d0aa51d80e56',  'name' => 'cms.article.access',                         'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
+            ['uuid' => '4cd4d822-66fe-4249-9dfa-7a06cb6c1592',  'name' => 'cms.article.list',                           'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
+            ['uuid' => 'c28c6772-a846-4ae5-9126-2931c9b1b0b7',  'name' => 'cms.article.create',                         'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],
+            ['uuid' => '205e2c88-2254-45d2-91df-615ca95983ac',  'name' => 'cms.article.get',                            'package_uuid' => 'dfb01738-2abc-4d42-8c5e-14d75f2b26fe'],  
         ]);
     }
 }
