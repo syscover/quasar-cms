@@ -15,7 +15,7 @@ return [
     //***   Status
     //******************************************************************************************************************
     'statuses'      => [
-        (object)['uuid' => '2b1a387c-6a2a-4ccc-9415-b9b95d4e4047', 'id' => 1, 'name' => 'cms::pulsar.draft'],
-        (object)['uuid' => '8d1fe36a-e119-41e4-a48f-ca6614cc0305', 'id' => 2, 'name' => 'cms::pulsar.publish']
+        (object)['uuid' => '2b1a387c-6a2a-4ccc-9415-b9b95d4e4047', 'id' => 1, 'name' => 'cms::quasar.draft'],
+        (object)['uuid' => '8d1fe36a-e119-41e4-a48f-ca6614cc0305', 'id' => 2, 'name' => 'cms::quasar.publish']
     ]
 ];
