@@ -1,5 +1,7 @@
 <?php namespace Quasar\Cms\Services;
 
+use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
 use Quasar\Cms\Models\Article;
 
@@ -20,7 +22,26 @@ class ArticleService extends CoreService
             'title'                 => 'nullable|between:2,510',
         ]);
 
-        return Article::create($data)->fresh();
+        // create commonUuid
+        $data['commonUuid'] = Str::uuid();
+        $object = null;
+
+        DB::transaction(function () use ($data, &$object)
+        {
+            // create
+            $object = Article::create($data)->fresh();
+
+            // add sections
+            $object->sections()->sync($data['sectionsUuid']);
+
+            // add families
+            $object->families()->sync($data['familiesUuid']);
+
+            // add data lang for element
+            $object->addDataLang($object);
+        });
+        
+        return $object;
     }
 
     public function update(array $data, string $uuid)
@@ -39,13 +60,24 @@ class ArticleService extends CoreService
             'title'                 => 'nullable|between:2,510',
         ]);
 
-        $object = Article::where('uuid', $uuid)->first();
+        $object = null;
 
-        // fill data
-        $object->fill($data);
+        DB::transaction(function () use ($data, $uuid, &$object)
+        {
+            $object = Article::where('uuid', $uuid)->first();
 
-        // save changes
-        $object->save();
+            // fill data
+            $object->fill($data);
+
+            // save changes
+            $object->save();
+
+            // add sections
+            $object->sections()->sync($data['sectionsUuid']);
+
+            // add families
+            $object->families()->sync($data['familiesUuid']);
+        });
 
         return $object;
     }

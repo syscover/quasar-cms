@@ -4,6 +4,8 @@ input CmsArticleInput
     uuid: ID
     commonUuid: ID
     langUuid: ID!
+    sectionsUuid: [ID]
+    familiesUuid: [ID]
     parentUuid: ID
     authorUuid: ID!
     authorType: String!
@@ -12,6 +14,9 @@ input CmsArticleInput
     publish: DateTime
     versionUuid: ID
     title: String
+    slug: String
+    excerpt: String
+    article: String
     dataLang: [String]
     data: JSON
     createdAt: DateTime

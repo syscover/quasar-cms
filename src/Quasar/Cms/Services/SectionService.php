@@ -17,7 +17,7 @@ class SectionService extends CoreService
 
         $object = Section::create($data)->fresh();
 
-        // update attachment families
+        // add attachment families
         $object->attachmentFamilies()->sync($data['attachmentFamiliesUuid']);
         
         return $object;

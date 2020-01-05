@@ -4,18 +4,31 @@ type CmsArticle
     uuid: ID!
     commonUuid: ID!
     langUuid: ID!
+    sections: [CmsSection]
+    families: [CmsFamily]
     parentUuid: ID
     authorUuid: ID!
     authorType: String!
+    author: CmsAuthor!
     name: String!
     statusUuid: ID!
     publish: DateTime!
     versionUuid: ID
     title: String
+    slug: String
+    excerpt: String
+    article: String
     dataLang: [String!]!
     data: JSON
     createdAt: DateTime
     updatedAt: DateTime
+}
+
+type CmsAuthor
+{
+    id: Int!
+    uuid: ID!
+    name: String!
 }
 
 type CmsFamily
