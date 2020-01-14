@@ -17,20 +17,11 @@ class CmsCreateTableArticlesCategories extends Migration
             Schema::create('cms_articles_categories', function (Blueprint $table) {
                 $table->engine = 'InnoDB';
 
-                $table->uuid('article_uuid');
+                $table->uuid('article_common_uuid');
                 $table->uuid('category_uuid');
 
-                $table->primary(['article_uuid', 'category_uuid']);
-                $table->foreign('article_uuid', 'cms_articles_categories_article_uuid_fk')
-                    ->references('uuid')
-                    ->on('cms_article')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
-                $table->foreign('category_uuid', 'cms_articles_categories_category_uuid_fk')
-                    ->references('uuid')
-                    ->on('cms_category')
-                    ->onDelete('cascade')
-                    ->onUpdate('cascade');
+                $table->primary(['article_common_uuid', 'category_uuid'], 'cms_articles_categories_article_common_uuid_category_uuid_pk');
+                // can't to have foreign because attachment_family_uuid can belong to various multi language elements
             });
         }
 	}

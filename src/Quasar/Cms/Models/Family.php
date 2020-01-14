@@ -10,7 +10,7 @@ use Quasar\Core\Models\CoreModel;
 class Family extends CoreModel
 {
     protected $table        = 'cms_family';
-    protected $fillable     = ['id', 'uuid', 'name', 'excerptEditorUuid', 'articleEditorUuid', 'fieldGroupUuid', 'hasDate', 'hasTitle', 'hasSlug', 'hasLink', 'hasCategories', 'hasTags', 'hasArticleParent', 'hasAttachments', 'hasSort', 'data'];
+    protected $fillable     = ['uuid', 'name', 'excerptEditorUuid', 'articleEditorUuid', 'fieldGroupUuid', 'hasDate', 'hasTitle', 'hasSlug', 'hasLink', 'hasCategories', 'hasTags', 'hasArticleParent', 'hasAttachments', 'hasSort', 'data'];
     protected $casts        = [
         'has_date'              => 'boolean',
         'has_title'             => 'boolean',

@@ -11,7 +11,7 @@ use Quasar\Admin\Models\AttachmentFamily;
 class Section extends CoreModel
 {
     protected $table        = 'cms_section';
-    protected $fillable     = ['id', 'uuid', 'anchor', 'name', 'familyUuid'];
+    protected $fillable     = ['uuid', 'anchor', 'name', 'familyUuid'];
     public $with            = ['attachmentFamilies', 'family'];
 
     public function attachmentFamilies()

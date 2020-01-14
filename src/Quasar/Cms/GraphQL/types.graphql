@@ -20,6 +20,7 @@ type CmsArticle
     article: String
     dataLang: [String!]!
     data: JSON
+    attachments: [AdminAttachment]
     createdAt: DateTime
     updatedAt: DateTime
 }

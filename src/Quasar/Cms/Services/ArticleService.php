@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
+use Quasar\Admin\Services\AttachmentService;
 use Quasar\Cms\Models\Article;
 
 class ArticleService extends CoreService
@@ -39,6 +40,9 @@ class ArticleService extends CoreService
 
             // add data lang for element
             $object->addDataLang($object);
+
+            // store attachments library
+            AttachmentService::storeAttachments($data['attachments'], 'storage/app/public/cms/articles', 'storage/cms/articles', Article::class, $object->uuid,  $object->langUuid);
         });
         
         return $object;
@@ -77,6 +81,9 @@ class ArticleService extends CoreService
 
             // add families
             $object->families()->sync($data['familiesUuid']);
+
+            // update attachments library
+            AttachmentService::updateAttachments($data['attachments'], 'storage/app/public/cms/articles', 'storage/cms/articles', Article::class, $object->uuid,  $object->langUuid);
         });
 
         return $object;

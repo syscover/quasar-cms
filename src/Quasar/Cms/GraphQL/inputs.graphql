@@ -17,6 +17,7 @@ input CmsArticleInput
     slug: String
     excerpt: String
     article: String
+    attachments: [AdminAttachmentInput]
     dataLang: [String]
     data: JSON
     createdAt: DateTime

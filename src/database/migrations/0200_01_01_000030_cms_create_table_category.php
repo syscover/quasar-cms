@@ -32,6 +32,7 @@ class CmsCreateTableCategory extends Migration
                 $table->softDeletes();
 
                 $table->index('uuid', 'cms_category_uuid_idx');
+                $table->index('common_uuid', 'cms_category_common_uuid_idx');
                 $table->index('slug', 'cms_category_slug_idx');
 
                 $table->foreign('lang_uuid', 'cms_category_lang_uuid_fk')

@@ -20,14 +20,14 @@ class CmsCreateTableSectionsAttachmentFamilies extends Migration
                 $table->uuid('section_uuid');
                 $table->uuid('attachment_family_uuid');
 
-                $table->primary(['section_uuid', 'attachment_family_uuid']);
+                // 'cms_sections_attachment_families_section_uuid_attachment_family_uuid_primary' is too long"
+                $table->primary(['section_uuid', 'attachment_family_uuid'], 'cms_sections_attachment_families_section_uuid_attachment_fami_pk');
                 $table->foreign('section_uuid', 'cms_sections_attachment_families_section_uuid_fk')
                     ->references('uuid')
                     ->on('cms_section')
                     ->onDelete('cascade')
                     ->onUpdate('cascade');
-                //'cms_sections_attachment_families_section_uuid_attachment_family_uuid_primary' is too long"
-                $table->foreign('attachment_family_uuid', 'cms_sections_attachment_families_attachment_family_uui_fk')
+                $table->foreign('attachment_family_uuid', 'cms_sections_attachment_families_attachment_family_uuid_fk')
                     ->references('uuid')
                     ->on('admin_attachment_family')
                     ->onDelete('cascade')

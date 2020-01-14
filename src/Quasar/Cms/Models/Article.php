@@ -1,8 +1,9 @@
 <?php namespace Quasar\Cms\Models;
 
 use Quasar\Core\Models\CoreModel;
-use Quasar\Admin\Traits\Langable;
 use Quasar\Core\Traits\CanManageDataLang;
+use Quasar\Admin\Traits\Langable;
+use Quasar\Admin\Models\Attachment;
 
 /**
  * Class Article
@@ -15,7 +16,6 @@ class Article extends CoreModel
 
     protected $table        = 'cms_article';
     protected $fillable     = [
-        'id', 
         'uuid', 
         'commonUuid', 
         'langUuid', 
@@ -31,18 +31,23 @@ class Article extends CoreModel
         'excerpt',
         'article'
     ];
-    public $with            = ['sections', 'families', 'author'];
+    public $with = ['sections', 'families', 'author', 'attachments'];
 
-    public function sections()
+    public function attachments()
     {
-        return $this->belongsToMany(
-            Section::class,
-            'cms_articles_sections',
-            'article_uuid',
-            'section_uuid',
-            'uuid',
-            'uuid'
-        );
+        return $this->morphMany(
+                Attachment::class,
+                'attachable',
+                'attachable_type',
+                'attachable_uuid',
+                'uuid'
+            )
+            ->orderBy('sort', 'asc');
+    }
+
+    public function author()
+    {
+        return $this->morphTo('author', 'author_type', 'author_uuid', 'uuid');
     }
 
     public function families()
@@ -50,15 +55,22 @@ class Article extends CoreModel
         return $this->belongsToMany(
             Family::class,
             'cms_articles_families',
-            'article_uuid',
+            'article_common_uuid',
             'family_uuid',
-            'uuid',
+            'common_uuid',
             'uuid'
         );
     }
 
-    public function author()
+    public function sections()
     {
-        return $this->morphTo('author', 'author_type', 'author_uuid', 'uuid');
+        return $this->belongsToMany(
+            Section::class,
+            'cms_articles_sections',
+            'article_common_uuid',
+            'section_uuid',
+            'common_uuid',
+            'uuid'
+        );
     }
 }
