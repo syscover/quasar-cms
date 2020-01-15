@@ -15,6 +15,8 @@ input CmsArticleInput
     versionUuid: ID
     title: String
     slug: String
+    link: String
+    blank: Boolean
     excerpt: String
     article: String
     attachments: [AdminAttachmentInput]

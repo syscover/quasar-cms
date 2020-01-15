@@ -28,6 +28,8 @@ class Article extends CoreModel
         'versionUuid', 
         'title', 
         'slug',
+        'link',
+        'blank',
         'excerpt',
         'article'
     ];
