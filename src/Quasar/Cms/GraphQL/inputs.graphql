@@ -17,8 +17,10 @@ input CmsArticleInput
     slug: String
     link: String
     blank: Boolean
+    datetime: DateTime
     excerpt: String
     article: String
+    sort: Int
     attachments: [AdminAttachmentInput]
     dataLang: [String]
     data: JSON
@@ -34,7 +36,7 @@ input CmsFamilyInput
     excerptEditorUuid: ID
     articleEditorUuid: ID
     fieldGroupUuid: ID
-    hasDate: Boolean
+    hasDatetime: Boolean
     hasTitle: Boolean
     hasSlug: Boolean
     hasLink: Boolean

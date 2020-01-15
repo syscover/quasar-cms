@@ -28,7 +28,7 @@ class CmsCreateTableFamily extends Migration
                 $table->uuid('excerpt_editor_uuid')->nullable();
                 $table->uuid('article_editor_uuid')->nullable();
                 $table->uuid('field_group_uuid')->nullable();
-                $table->boolean('has_date')->default(false);
+                $table->boolean('has_datetime')->default(false);
                 $table->boolean('has_title')->default(false);
                 $table->boolean('has_slug')->default(false);
                 $table->boolean('has_link')->default(false);

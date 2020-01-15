@@ -30,8 +30,10 @@ class Article extends CoreModel
         'slug',
         'link',
         'blank',
+        'datetime',
         'excerpt',
-        'article'
+        'article',
+        'sort'
     ];
     public $with = ['sections', 'families', 'author', 'attachments'];
 

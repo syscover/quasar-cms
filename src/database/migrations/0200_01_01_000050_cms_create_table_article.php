@@ -32,7 +32,7 @@ class CmsCreateTableArticle extends Migration {
                 $table->string('slug')->nullable();
                 $table->string('link')->nullable();
                 $table->boolean('blank')->default(false);
-                $table->timestamp('date')->nullable();                                      // date of article
+                $table->timestamp('datetime')->nullable();                                  // date of article
                 $table->json('tags')->nullable();
                 $table->text('excerpt')->nullable();
                 $table->longText('article')->nullable();

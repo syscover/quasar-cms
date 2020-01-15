@@ -21,6 +21,8 @@ class ArticleService extends CoreService
             'statusUuid'            => 'required|uuid',
             'versionUuid'           => 'nullable|uuid',
             'title'                 => 'nullable|between:2,510',
+            'datetime'              => 'nullable|date_format:Y-m-d H:i:s',
+            'sort'                  => 'nullable|integer',
         ]);
 
         // create commonUuid
