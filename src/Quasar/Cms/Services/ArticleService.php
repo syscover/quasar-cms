@@ -6,7 +6,6 @@ use Quasar\Core\Services\CoreService;
 use Quasar\Admin\Services\AttachmentService;
 use Quasar\Cms\Models\Article;
 
-
 class ArticleService extends CoreService
 {
     public function create(array $data)
