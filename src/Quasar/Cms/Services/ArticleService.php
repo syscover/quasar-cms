@@ -40,7 +40,7 @@ class ArticleService extends CoreService
             $object->families()->sync($data['familiesUuid']);
 
             // add data lang for element
-            $object->addDataLang($object);
+            $object->addDataLang();
 
             // store attachments library
             AttachmentService::storeAttachments($data['attachments'], 'storage/app/public/cms/articles', 'storage/cms/articles', Article::class, $object->uuid,  $object->langUuid);
