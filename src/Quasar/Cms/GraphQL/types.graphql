@@ -21,6 +21,7 @@ type CmsArticle
     datetime: DateTime
     excerpt: String
     article: String
+    tags: [String]
     sort: Int
     dataLang: [String!]!
     data: JSON

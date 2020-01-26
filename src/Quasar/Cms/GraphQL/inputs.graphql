@@ -20,6 +20,7 @@ input CmsArticleInput
     datetime: DateTime
     excerpt: String
     article: String
+    tags: [String]
     sort: Int
     attachments: [AdminAttachmentInput]
     dataLang: [String]
