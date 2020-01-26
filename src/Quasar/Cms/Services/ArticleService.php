@@ -26,6 +26,10 @@ class ArticleService extends CoreService
 
         // create commonUuid
         $data['commonUuid'] = Str::uuid();
+        
+        // set custom fields
+        $data['data']['customFields'] = $data['customFields'] ?? null;
+        
         $object = null;
 
         DB::transaction(function () use ($data, &$object)
@@ -64,6 +68,9 @@ class ArticleService extends CoreService
             'versionUuid'           => 'nullable|uuid',
             'title'                 => 'nullable|between:2,510',
         ]);
+
+        // set custom fields
+        $data['data']['customFields'] = $data['customFields'] ?? null;
 
         $object = null;
 

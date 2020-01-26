@@ -2,6 +2,7 @@
 
 use Quasar\Core\Models\CoreModel;
 use Quasar\Core\Traits\CanManageDataLang;
+use Quasar\Admin\Traits\CustomizableValues;
 use Quasar\Admin\Traits\Langable;
 use Quasar\Admin\Models\Attachment;
 
@@ -12,7 +13,7 @@ use Quasar\Admin\Models\Attachment;
 
 class Article extends CoreModel
 {
-    use Langable, CanManageDataLang;
+    use Langable, CanManageDataLang, CustomizableValues;
 
     protected $table        = 'cms_article';
     protected $fillable     = [
@@ -31,9 +32,16 @@ class Article extends CoreModel
         'link',
         'blank',
         'datetime',
+        'tags',
         'excerpt',
         'article',
-        'sort'
+        'sort',
+        'data'
+    ];
+    protected $casts        = [
+        'tags'      => 'array',
+        'data_lang' => 'array',
+        'data'      => 'array'
     ];
     public $with = ['sections', 'families', 'author', 'attachments'];
 

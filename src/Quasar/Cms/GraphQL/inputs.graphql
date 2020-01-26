@@ -24,8 +24,7 @@ input CmsArticleInput
     attachments: [AdminAttachmentInput]
     dataLang: [String]
     data: JSON
-    createdAt: DateTime
-    updatedAt: DateTime
+    customFields: JSON
 }
 
 input CmsFamilyInput
@@ -46,8 +45,6 @@ input CmsFamilyInput
     hasAttachments: Boolean
     hasSort: Boolean
     data: JSON
-    createdAt: DateTime
-    updatedAt: DateTime
 }
 
 input CmsSectionInput
@@ -58,6 +55,4 @@ input CmsSectionInput
     name: String!
     familyUuid: ID
     attachmentFamiliesUuid: [ID]
-    createdAt: DateTime
-    updatedAt: DateTime
 }
