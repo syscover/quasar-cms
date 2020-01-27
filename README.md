@@ -46,3 +46,7 @@ type Mutation {
     #import ./../vendor/quasar/cms/src/Quasar/Cms/GraphQL/mutations.graphql
 }
 ```
+
+## Tips
+
+[Documentation](https://github.com/syscover/quasar-cms/wiki/Publisher)
