@@ -12,6 +12,7 @@ class CmsSeeder extends Seeder
         $this->call(CmsPackageSeeder::class);
         $this->call(CmsPermissionSeeder::class);
         $this->call(CmsResourceSeeder::class);
+        $this->call(CmsPermissionsRolesSeeder::class);
         
         Model::reguard();
     }
