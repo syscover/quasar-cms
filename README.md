@@ -33,14 +33,14 @@ php artisan db:seed --class="CmsSeeder"
 #import ./../vendor/quasar/cms/src/Quasar/Cms/GraphQL/types.graphql
 
 type Query {
-    // others imports
+    # others imports
 
     # Cms
     #import ./../vendor/quasar/cms/src/Quasar/Cms/GraphQL/queries.graphql
 }
 
 type Mutation {
-    // others imports
+    # others imports
 
     # Cms
     #import ./../vendor/quasar/cms/src/Quasar/Cms/GraphQL/mutations.graphql
