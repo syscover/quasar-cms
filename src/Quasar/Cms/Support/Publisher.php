@@ -13,6 +13,16 @@ class Publisher
             ->where('publish', '<' , now())
             ->where('lang_uuid', $data['langUuid'] ?? base_lang_uuid());
 
+        if ($data['categories'] ?? false)
+        {
+            if (is_array($data['categories']))
+            {
+                $query->whereHas('categories', function($q) use ($data) {
+                    $q->whereIn('slug', $data['categories']);
+                });
+            }
+        }    
+
         foreach ($data as $key => $value)
         {
             switch ($key)
