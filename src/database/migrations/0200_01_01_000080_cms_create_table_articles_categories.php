@@ -18,9 +18,10 @@ class CmsCreateTableArticlesCategories extends Migration
                 $table->engine = 'InnoDB';
 
                 $table->uuid('article_common_uuid');
-                $table->uuid('category_uuid');
+                $table->uuid('category_common_uuid');
 
-                $table->primary(['article_common_uuid', 'category_uuid'], 'cms_articles_categories_article_common_uuid_category_uuid_pk');
+                // name 'cms_articles_categories_article_common_uuid_category_common_uuid_pk' is too long"
+                $table->primary(['article_common_uuid', 'category_common_uuid'], 'cms_articles_categories_article_common_uuid_category_common_u_pk');
                 // can't to have foreign because attachment_family_uuid can belong to various multi language elements
             });
         }

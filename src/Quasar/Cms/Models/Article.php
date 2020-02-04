@@ -43,7 +43,7 @@ class Article extends CoreModel
         'data_lang' => 'array',
         'data'      => 'array'
     ];
-    public $with = ['sections', 'families', 'author', 'attachments'];
+    public $with = ['sections', 'families', 'categories', 'author', 'attachments'];
 
     public function attachments()
     {
@@ -83,6 +83,18 @@ class Article extends CoreModel
             'section_uuid',
             'common_uuid',
             'uuid'
+        );
+    }
+
+    public function categories()
+    {
+        return $this->belongsToMany(
+            Category::class,
+            'cms_articles_categories',
+            'article_common_uuid',
+            'category_common_uuid',
+            'common_uuid',
+            'common_uuid'
         );
     }
 }

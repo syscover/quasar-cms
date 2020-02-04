@@ -15,6 +15,7 @@ input CmsArticleInput
     versionUuid: ID
     title: String
     slug: String
+    categoriesCommonUuid: [ID]
     link: String
     blank: Boolean
     datetime: DateTime
@@ -26,6 +27,19 @@ input CmsArticleInput
     dataLang: [String]
     data: JSON
     customFields: JSON
+}
+
+input CmsCategoryInput
+{
+    id: Int
+    uuid: ID
+    commonUuid: ID
+    langUuid: ID!
+    name: String!
+    slug: String!
+    sectionUuid: ID
+    sort: Int
+    dataLang: [String]
 }
 
 input CmsFamilyInput

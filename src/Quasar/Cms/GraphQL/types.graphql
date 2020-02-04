@@ -16,6 +16,7 @@ type CmsArticle
     versionUuid: ID
     title: String
     slug: String
+    categories: [CmsCategory]
     link: String
     blank: Boolean
     datetime: DateTime
@@ -35,6 +36,23 @@ type CmsAuthor
     id: Int!
     uuid: ID!
     name: String!
+}
+
+type CmsCategory
+{
+    id: Int!
+    uuid: ID!
+    commonUuid: ID!
+    langUuid: ID!
+    lang: AdminLang
+    name: String!
+    slug: String!
+    sectionUuid: ID
+    section: CmsSection
+    sort: Int
+    dataLang: [String!]!
+    createdAt: DateTime
+    updatedAt: DateTime
 }
 
 type CmsFamily
@@ -67,6 +85,7 @@ type CmsSection
     name: String!
     familyUuid: ID
     family: CmsFamily
+    categories: [CmsCategory]
     attachmentFamilies: [AdminAttachmentFamily]
     createdAt: DateTime
     updatedAt: DateTime

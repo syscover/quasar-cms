@@ -12,7 +12,7 @@ class Section extends CoreModel
 {
     protected $table        = 'cms_section';
     protected $fillable     = ['uuid', 'anchor', 'name', 'familyUuid'];
-    public $with            = ['attachmentFamilies', 'family'];
+    public $with            = ['attachmentFamilies', 'family', 'categories'];
 
     public function attachmentFamilies()
     {
@@ -29,5 +29,10 @@ class Section extends CoreModel
     public function family()
     {
         return $this->belongsTo(Family::class, 'family_uuid', 'uuid');
+    }
+
+    public function categories()
+    {
+        return $this->hasMany(Category::class, 'section_uuid', 'uuid');
     }
 }

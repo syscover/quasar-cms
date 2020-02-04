@@ -1,7 +1,12 @@
 # Article
 cmsArticle(query:[QueryStatementInput]): CmsArticle @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@find")
 cmsArticles(query:[QueryStatementInput]): [CmsArticle!]! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@get")
-cmsArticlesPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@paginate")
+cmsArticlesPagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\ArticleResolver@paginate")
+
+# Category
+cmsCategory(query:[QueryStatementInput]): CmsCategory @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\CategoryResolver@find")
+cmsCategories(query:[QueryStatementInput]): [CmsCategory!]! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\CategoryResolver@get")
+cmsCategoriesPagination(query:[QueryStatementInput] constraints:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\CategoryResolver@paginate")
 
 # Family
 cmsFamily(query:[QueryStatementInput]): CmsFamily @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\FamilyResolver@find")

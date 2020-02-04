@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Str;
 use Quasar\Core\Services\CoreService;
+use Quasar\Core\Services\SQLService;
 use Quasar\Admin\Services\AttachmentService;
 use Quasar\Cms\Models\Article;
 
@@ -25,7 +26,7 @@ class ArticleService extends CoreService
         ]);
 
         // create commonUuid
-        $data['commonUuid'] = Str::uuid();
+        $data['commonUuid'] = $data['commonUuid'] ?? Str::uuid();
         
         // set custom fields
         $data['data']['customFields'] = $data['customFields'] ?? null;
@@ -42,6 +43,9 @@ class ArticleService extends CoreService
 
             // add families
             $object->families()->sync($data['familiesUuid']);
+
+            // add categories
+            $object->categories()->sync($data['categoriesCommonUuid']);
 
             // add data lang for element
             $object->addDataLang();
@@ -90,10 +94,32 @@ class ArticleService extends CoreService
             // add families
             $object->families()->sync($data['familiesUuid']);
 
+            // add categories
+            $object->categories()->sync($data['categoriesCommonUuid']);
+
             // update attachments library
             AttachmentService::updateAttachments($data['attachments'], 'storage/app/public/cms/articles', 'storage/cms/articles', Article::class, $object->uuid,  $object->langUuid);
         });
 
         return $object;
+    }
+
+    public function delete($uuid, $modelClassName)
+    {
+        $objects = SQLService::deleteRecord($uuid, $modelClassName);
+
+        if ($objects->contains('langUuid', base_lang_uuid()))
+        {
+            $object = $objects->first();
+
+            $object->sections()->detach();
+            $object->families()->detach();
+            $object->categories()->detach();
+        }
+
+        // delete attachments
+        AttachmentService::deleteAttachments($objects->pluck('uuid'));
+
+        return $objects;
     }
 }

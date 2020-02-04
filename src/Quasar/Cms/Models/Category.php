@@ -13,12 +13,12 @@ class Category extends CoreModel
     use Langable;
 
 	protected $table        = 'cms_category';
-	protected $fillable     = ['uuid', 'common_uuid', 'lang_uuid', 'name', 'slug', 'section_uuid', 'sort', 'data_lang', 'data'];
+	protected $fillable     = ['uuid', 'commonUuid', 'langUuid', 'name', 'slug', 'sectionUuid', 'sort', 'dataLang', 'data'];
     protected $casts        = [
         'data_lang' => 'array',
         'data'      => 'array'
     ];
-    public $with            = ['lang', 'section'];
+    public $with            = ['lang'];
 
     public function scopeBuilder($query)
     {
@@ -27,6 +27,7 @@ class Category extends CoreModel
             ->addSelect('cms_section.*', 'cms_category.*', 'cms_section.name as cms_section_name', 'cms_category.name as cms_category_name');
     }
 
+    // ATTENTION, cyclic relationship load, can not to be in $with array
     public function section()
     {
         return $this->belongsTo(Section::class, 'section_uuid', 'uuid');
