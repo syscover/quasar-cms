@@ -104,9 +104,9 @@ class ArticleService extends CoreService
         return $object;
     }
 
-    public function delete($uuid, $modelClassName)
+    public function delete($data, $model)
     {
-        $objects = SQLService::deleteRecord($uuid, $modelClassName);
+        $objects = SQLService::deleteRecord($data['uuid'], $model);
 
         if ($objects->contains('langUuid', base_lang_uuid()))
         {
