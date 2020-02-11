@@ -90,3 +90,13 @@ type CmsSection
     createdAt: DateTime
     updatedAt: DateTime
 }
+
+type CmsVersion
+{
+    id: Int!
+    uuid: ID!
+    name: String!
+    hasCurrentContent: Boolean!
+    createdAt: DateTime
+    updatedAt: DateTime
+}

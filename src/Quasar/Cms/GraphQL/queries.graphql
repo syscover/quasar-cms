@@ -17,3 +17,8 @@ cmsFamiliesPagination(query:[QueryStatementInput]): Pagination! @field(resolver:
 cmsSection(query:[QueryStatementInput]): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@find")
 cmsSections(query:[QueryStatementInput]): [CmsSection!]! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@get")
 cmsSectionsPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@paginate")
+
+# Version
+cmsVersion(query:[QueryStatementInput]): CmsVersion @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\VersionResolver@find")
+cmsVersions(query:[QueryStatementInput]): [CmsVersion!]! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\VersionResolver@get")
+cmsVersionsPagination(query:[QueryStatementInput]): Pagination! @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\VersionResolver@paginate")

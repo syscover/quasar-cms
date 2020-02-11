@@ -17,3 +17,8 @@ cmsDeleteFamily(uuid:ID!): [CmsFamily] @field(resolver: "Quasar\\Cms\\GraphQL\\R
 cmsCreateSection(payload:CmsSectionInput!): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@create")
 cmsUpdateSection(payload:CmsSectionInput!): CmsSection @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@update")
 cmsDeleteSection(uuid:ID!): [CmsSection] @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\SectionResolver@delete")
+
+# Version
+cmsCreateVersion(payload:CmsVersionInput!): CmsVersion @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\VersionResolver@create")
+cmsUpdateVersion(payload:CmsVersionInput!): CmsVersion @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\VersionResolver@update")
+cmsDeleteVersion(uuid:ID!): [CmsVersion] @field(resolver: "Quasar\\Cms\\GraphQL\\Resolvers\\VersionResolver@delete")

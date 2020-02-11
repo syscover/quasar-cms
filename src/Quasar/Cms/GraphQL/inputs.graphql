@@ -71,3 +71,11 @@ input CmsSectionInput
     familyUuid: ID
     attachmentFamiliesUuid: [ID]
 }
+
+input CmsVersionInput
+{
+    id: Int
+    uuid: ID
+    name: String!
+    hasCurrentContent: Boolean
+}
