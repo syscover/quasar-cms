@@ -19,7 +19,8 @@
     "require": {
         "php": "^7.3",
         "quasar/admin": "^1.0",
-        "quasar/core": "^1.0"
+        "quasar/core": "^1.0",
+        "quasar/navtools": "^1.0"
     },
     "autoload": {
         "psr-4": {
