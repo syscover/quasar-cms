@@ -50,6 +50,15 @@ class ArticleService extends CoreService
             // add data lang for element
             $object->addDataLang();
 
+            // parse html and manage img of wysiwyg
+            $html = AttachmentService::storeFroalaAttachments($object->article, 'storage/app/public/cms/articles', 'storage/cms/articles', $object->uuid);
+
+            if ($html !== null)
+            {
+                $object->article = $html;
+                $object->save();
+            }
+
             // store attachments library
             AttachmentService::storeAttachments($data['attachments'], 'storage/app/public/cms/articles', 'storage/cms/articles', Article::class, $object->uuid,  $object->langUuid);
         });
@@ -84,6 +93,9 @@ class ArticleService extends CoreService
 
             // fill data
             $object->fill($data);
+
+            // set wysiwyg attachments
+            $object->article = AttachmentService::storeFroalaAttachments($object->article, 'storage/app/public/cms/articles', 'storage/cms/articles', $object->uuid);
 
             // save changes
             $object->save();
