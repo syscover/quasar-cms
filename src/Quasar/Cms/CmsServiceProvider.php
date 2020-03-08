@@ -1,6 +1,7 @@
 <?php namespace Quasar\Cms;
 
 use Illuminate\Support\ServiceProvider;
+use Quasar\Cms\Events\CmsEventServiceProvider;
 
 class CmsServiceProvider extends ServiceProvider
 {
@@ -26,6 +27,9 @@ class CmsServiceProvider extends ServiceProvider
         $this->publishes([
             __DIR__ . '/../../config/quasar-cms.php' => config_path('quasar-cms.php')
         ], 'config');
+
+        // register events and listener predefined
+        $this->app->register(CmsEventServiceProvider::class);
 	}
 
 	/**
