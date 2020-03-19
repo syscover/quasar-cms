@@ -12,7 +12,7 @@ class Publisher
         $query = Article::whereHas('sections', function($q) use ($anchor) {
                 $q->where('anchor', $anchor);
             })
-            ->where('lang_uuid', $data['langUuid'] ?? base_lang_uuid());
+            ->where('lang_uuid', $data['langUuid'] ?? baseLangUuid());
 
         if ($version)
         {
@@ -66,7 +66,7 @@ class Publisher
     {
         $version = self::checkVersion();
 
-        $query = Article::where('lang_uuid', $data['langUuid'] ?? base_lang_uuid())
+        $query = Article::where('lang_uuid', $data['langUuid'] ?? baseLangUuid())
             ->where('slug', $slug);
 
         if ($version)

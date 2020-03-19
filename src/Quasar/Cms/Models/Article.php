@@ -1,5 +1,6 @@
 <?php namespace Quasar\Cms\Models;
 
+use Laravel\Scout\Searchable;
 use Quasar\Core\Models\CoreModel;
 use Quasar\Core\Traits\CanManageDataLang;
 use Quasar\Admin\Traits\CustomizableValues;
@@ -14,6 +15,7 @@ use Quasar\Admin\Models\Attachment;
 class Article extends CoreModel
 {
     use Langable, CanManageDataLang, CustomizableValues;
+    use Searchable;
 
     protected $table        = 'cms_article';
     protected $fillable     = [
@@ -44,7 +46,7 @@ class Article extends CoreModel
         'data'      => 'array'
     ];
     public $with = ['sections', 'families', 'categories', 'author', 'attachments'];
-
+    
     public function attachments()
     {
         return $this->morphMany(
@@ -96,5 +98,19 @@ class Article extends CoreModel
             'common_uuid',
             'common_uuid'
         );
+    }
+
+    public function toIndexableArray()
+    {
+        return [
+            'permissionUuid'    => '205e2c88-2254-45d2-91df-615ca95983ac',
+            'indexableType'     => self::class,
+            'indexableUuid'     => $this->uuid,
+            'url'               => '/app/cms/article/edit/' . $this->langUuid . '/' . $this->commonUuid,
+            'title'             => $this->name,
+            'contentLayer1'     => $this->title,
+            'contentLayer2'     => $this->excerpt,
+            'contentLayer3'     => $this->article,
+        ];
     }
 }

@@ -120,7 +120,7 @@ class ArticleService extends CoreService
     {
         $objects = SQLService::deleteRecord($data['uuid'], $model);
 
-        if ($objects->contains('langUuid', base_lang_uuid()))
+        if ($objects->contains('langUuid', baseLangUuid()))
         {
             $object = $objects->first();
 
